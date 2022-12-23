@@ -8,17 +8,39 @@
         <div id="main-container">
             <svg id="loading-icon" class="hidden" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="64px" height="64px" viewBox="0 0 128 128" xml:space="preserve"><rect x="0" y="0" width="100%" height="100%" fill="#FFFFFF"/><g><path d="M75.4 126.63a11.43 11.43 0 0 1-2.1-22.65 40.9 40.9 0 0 0 30.5-30.6 11.4 11.4 0 1 1 22.27 4.87h.02a63.77 63.77 0 0 1-47.8 48.05v-.02a11.38 11.38 0 0 1-2.93.37z" fill="#000000"/><animateTransform attributeName="transform" type="rotate" from="0 64 64" to="360 64 64" dur="1800ms" repeatCount="indefinite"/></g></svg>
             <div id="form-1" class="form">
-                <h3 id="title">Find your extension</h3>
+                <h3>Find your extension</h3>
                 <form class="input-container" onsubmit="getExtension(); return false">
                     <input placeholder="Extension ID" type="text" id="input-ext"></input>
                     <input type="submit" value="Proceed" class="btn primary"></input>
                 </form>
             </div>
             <div id="form-2" class="form hidden">
-                <h3 id="title">Is this right?</h3>
+                <h3>Is this right?</h3>
+                <div class="card">
+                    <img id="ext-icon">
+                    <div class="card-details">
+                        <h4 id="ext-title"></h4>
+                        <p id="ext-author" class="subtext"></p>
+                        <p id="ext-summary"></p>
+                    </div>
+                </div>
                 <div>
                     <button id="f2-cancel" class="btn" onclick="cancelExtension()">Cancel</button>
                     <button id="f2-confirm" class="btn primary" onclick="confirmExtension()">Confirm</button>
+                </div>
+            </div>
+            <div id="form-3" class="form hidden">
+                <h3 class="space-bottom-none">Enter your email</h3>
+                <p class="subtext">This is where you will receive support messages</p>
+                <form class="input-container" onsubmit="submitWatcher(); return false">
+                    <input placeholder="Email" type="text" id="input-email"></input>
+                    <input type="submit" value="Proceed" class="btn primary"></input>
+                </form>
+            </div>
+            <div id="form-4" class="form hidden">
+                <h3>Success</h3>
+                <div class="card">
+                    <p>Your email has been subscribed to <b id="success-ext-name"></b> support notifications</p>
                 </div>
             </div>
         </div>

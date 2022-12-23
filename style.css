@@ -20,6 +20,14 @@ body {
     border-radius: 1em;
 }
 
+#loading-icon {
+    margin: auto auto;
+}
+
+#ext-icon {
+    height: 75%;
+}
+
 .input-container {
     display: flex;
     min-width: 50%;
@@ -34,6 +42,7 @@ input {
 }
 
 .form {
+    position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -48,10 +57,30 @@ input {
     background-color: #176dce;
 }
 
-#loading-icon {
-    margin: auto auto;
-}
-
 .hidden {
     display: none;
+}
+
+.card {
+    height: 6em;
+    margin: 0 2em;
+    margin-bottom: 1em;
+    display: inline-flex;
+    align-items: center;
+}
+.card-details { flex: 1; }
+.card-details h4, .card-details p {
+    margin: 0;
+} .card-details p {
+    font-size: 0.8rem;
+}
+
+.subtext {
+    font-size: 0.6rem;
+    color: #333;
+    margin: 0.5em 0 !important;
+}
+
+.space-bottom-none {
+    margin-bottom: 0;
 }
