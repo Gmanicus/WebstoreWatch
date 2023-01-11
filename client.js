@@ -3,7 +3,10 @@ let form1;
 let form2;
 let form3;
 let form4;
+let form5;
 let selectedExtension;
+
+const SERVER_IP = "http://localhost:5000";
 
 window.onload = () => {
     loader = document.getElementById("loading-icon");
@@ -11,6 +14,7 @@ window.onload = () => {
     form2 = document.getElementById("form-2");
     form3 = document.getElementById("form-3");
     form4 = document.getElementById("form-4");
+    form5 = document.getElementById("form-5");
 }
 
 async function getExtension() {
@@ -21,23 +25,34 @@ async function getExtension() {
     loader.classList.remove("hidden");
     
     
-    let response = await fetch("http://localhost:5000/extension", {
+    let responseData = await fetch(`${SERVER_IP}/extension`, {
         method: 'POST',
         mode: "cors",
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({"ext-id": id})
-    })
+    }).then(response => {
+        if (response.ok) return response.json();
+        else return false;
+    }).catch(() => false)
+
+    let data = await responseData;
+    console.log(data);
+    if (!data) {
+        loader.classList.add("hidden");
+        form5.classList.remove("hidden");
+        return;
+    }
     
-    let data = await response.json();
+    
     selectedExtension = data;
     selectedExtension.id = id;
 
-    document.getElementById("ext-icon").src = data.icon;
-    document.getElementById("ext-title").innerText = data.name;
-    document.getElementById("ext-author").innerText = `By ${data.author}`;
-    document.getElementById("ext-summary").innerText = data.summary;
+    document.getElementById("ext-icon").src = selectedExtension.icon;
+    document.getElementById("ext-title").innerText = selectedExtension.name;
+    document.getElementById("ext-author").innerText = `By ${selectedExtension.author}`;
+    document.getElementById("ext-summary").innerText = selectedExtension.summary;
 
     form2.getBoundingClientRect(); // Trigger reflow
 
@@ -70,7 +85,7 @@ async function submitWatcher() {
     form3.classList.add("hidden");
     loader.classList.remove("hidden");
 
-    let response = await fetch("http://localhost:5000/watch", {
+    let success = await fetch(`${SERVER_IP}/watch`, {
         method: 'POST',
         mode: "cors",
         headers: {
@@ -78,12 +93,16 @@ async function submitWatcher() {
         },
         body: JSON.stringify({
             "email": email,
-            "ext-id": selectedExtension.id
+            "ext-id": selectedExtension.id,
+            "ext-name": selectedExtension.name
         })
-    })
+    }).then(response => {
+        if (response.ok) return true;
+        else return false;
+    }).catch(() => false)
     
-    let data = await response.text();
-
     loader.classList.add("hidden");
-    form4.classList.remove("hidden");
+
+    if (success) form4.classList.remove("hidden");
+    else         form5.classList.remove("hidden");
 }

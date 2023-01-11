@@ -5,7 +5,9 @@ html {
 body {
     display: flex;
     height: 100vh;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #main-container {
@@ -13,7 +15,6 @@ body {
     height: 14em;
     width: 28em;
 
-    margin: auto auto;
     align-items: center;
     flex-direction: column;
     box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
@@ -83,4 +84,24 @@ input {
 
 .space-bottom-none {
     margin-bottom: 0;
+}
+
+#about {
+    display: flex;
+    width: 28em;
+
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+} #about a {
+    text-decoration: none;
+}
+
+.ico-label-container {
+    display: flex;
+    align-items: center;
+} .ico-label-container img {
+    height: 2.5em;
+    border-radius: 50%;
+    margin-right: 1em;
 }
