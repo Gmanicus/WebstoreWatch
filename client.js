@@ -8,7 +8,7 @@ let form6;
 let form7;
 let selectedExtension;
 
-const SERVER_IP = "meet1.stevemartin.work:5000";
+const SERVER_IP = "http://meet1.stevemartin.work:5000";
 
 window.onload = () => {
     loader = document.getElementById("loading-icon");
