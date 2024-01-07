@@ -5,10 +5,6 @@ A small utility that will email you when support requests are made on a Chrome W
 
 <hr/>
 
-## ❗ Service was down
-My apologies. It appears that Webstore Watch has been down since early this year (2023). It was hosted on a Replit Always On server, which Replit removed from their services a few months after hosting Webstore Watch. I have updated the service to use their replacement Deployments service and Webstore Watch appears to be back up and running.
-<hr/>
-
 <h3>To sign up:</h3>
 
 1) Enter in your extension's id, found here:
