@@ -8,7 +8,7 @@ let form6;
 let form7;
 let selectedExtension;
 
-const SERVER_IP = "https://WebstoreWatcher.gmanicus.repl.co";
+const SERVER_IP = "https://webstore-watcher-Gmanicus.replit.app";
 
 window.onload = () => {
     loader = document.getElementById("loading-icon");
