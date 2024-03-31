@@ -5,6 +5,10 @@ A small utility that will email you when support requests are made on a Chrome W
 
 <hr/>
 
+## ❗ Down for maintenance
+The Chrome Webstore recently received an overhaul. Unfortunately, this also completely changed how reviews and support requests are retrieved and broke Webstore Watch's ability to retrieve extension details. Webstore Watch will be down for maintenance indefinitely while I find time to spare and investigate new ways to retrieve these details.
+<hr/>
+
 <h3>To sign up:</h3>
 
 1) Enter in your extension's id, found here:
